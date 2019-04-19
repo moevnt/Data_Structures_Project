@@ -1,16 +1,16 @@
 import java.util.*;
 //this is a queue
 public class Gainz {
-	private LinkedList<Transaction> stocks = new LinkedList<>();
+	private LinkedList<Stock> stocks = new LinkedList<>();
 
 	public Gainz(){
 	}
 
-	public Transaction dequeue(){
-		return (Transaction) stocks.removeFirst();
+	public Stock dequeue(){
+		return (Stock) stocks.removeFirst();
 	}
 
-	public void enqueue(Transaction x){
+	public void enqueue(Stock x){
 		stocks.addLast(x);
 	}
 

@@ -12,33 +12,32 @@ public class CPU {
 	}
 
 	public void addJob(Job job) {
-		ListIterator<Job> iterator = pq.listIterator();
-		if (job.getPriority() <= min) {
-			pq.addFirst(job);
-			min = job.getPriority();
-		}
-		else if (job.getPriority() >= max) {
-			pq.addLast(job);
-			max = job.getPriority();
-		}
-		else {
-			while (true) {
-				if (iterator.hasNext()) {
-					Job temp = iterator.next();
-					if (job.getPriority() < temp.getPriority()) {
-						iterator.add(job);
-						break;
+		{
+			ListIterator<Job> iterator = pq.listIterator();
+			if (job.getPriority() <= min) {
+				pq.addFirst(job);
+				min = job.getPriority();
+			} else if (job.getPriority() >= max) {
+				pq.addLast(job);
+				max = job.getPriority();
+			} else {
+				while (true) {
+					if (iterator.hasNext()) {
+						Job temp = iterator.next();
+						if (job.getPriority() < temp.getPriority()) {
+							iterator.add(job);
+							break;
+						} else {
+							iterator.add(job);
+							break;
+						}
 					}
-					else {
-						iterator.add(job);
-						break;
-					}
-				}
 
+				}
 			}
+			System.out.println("Job successfully added to registry\n");
 		}
-		System.out.println("Job successfully added to registry\n");
-	}
+	//}
 
 	public void run() {
 

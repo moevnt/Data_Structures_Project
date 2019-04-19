@@ -59,17 +59,17 @@ public class StockClient {
 		System.out.println("Please enter the buying price per stock");
 		long buyP = input.nextLong();
 		//make transaction
-		Transaction trans = new Transaction(amount, buyP);
+		Stock trans = new Stock( buyP);
 		portfolio.enqueue(trans);
 	}
 
 	public static long sell(int number, long sellp) {
-		Transaction fo;
+		Stock fo;
 		long cg = 0;
 		//check length in switch statement
 		for (int i = 0; i < number; i++) {
 			fo = portfolio.dequeue();
-			cg += fo.getAmount() * (sellp - fo.getBuyP());
+			//cg += fo.getAmount() * (sellp - fo.getBuyP());
 		}
 		return cg;
 	}
