@@ -1,5 +1,5 @@
 import java.util.*;
-
+//update
 public class CPU {
 
 	private final LinkedList pq = new LinkedList<>();
