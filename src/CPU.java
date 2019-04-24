@@ -2,7 +2,7 @@ import java.util.*;
 //update
 public class CPU {
 
-	private final LinkedList pq = new LinkedList<>();
+	private final LinkedList pq = new LinkedList<Job>();
 	private int min = 19;
 	private int max = -20;
 	private int sliceCount;
@@ -37,7 +37,7 @@ public class CPU {
 			}
 			System.out.println("Job successfully added to registry\n");
 		}
-	//}
+	}
 
 	public void run() {
 
@@ -55,7 +55,12 @@ public class CPU {
 			}
 			return;
 		}
-		if(pq.isEmpty())
+		if (pq.isEmpty())
 			System.out.println("There are no new jobs\n");
 	}
+
+	public void runRoundRobin() {
+
+		}
+
 }

@@ -34,11 +34,11 @@ public class StockClient {
 					long sellP = in.nextLong();
 					long capitalGainz = sell(number, sellP);
 					totalCapitalGainz += capitalGainz;
-					System.out.println("The capital gains from this sale are " + capitalGainz + "\n" + "The total capital gains from the portfolio are " + totalCapitalGainz);
+					System.out.println("The capital gains from this sale are " + capitalGainz + "\n" + "The total capital gains from the portfolio are " + totalCapitalGainz+"\n");
 					break;
 				}
 				case 3: {
-					System.out.println("There are " + portfolio.getSize() + " transactions in the portfolio");
+					System.out.println("There are " + portfolio.getSize() + " stocks in the portfolio");
 					break;
 				}
 				case 4: {
@@ -59,22 +59,20 @@ public class StockClient {
 		System.out.println("Please enter the buying price per stock");
 		long buyP = input.nextLong();
 		//make transaction
-		Stock trans = new Stock( buyP);
-		portfolio.enqueue(trans);
+		for(int i =0;i<amount;i++) {
+			Stock trans = new Stock(buyP);
+			portfolio.enqueue(trans);
+		}
 	}
 
 	public static long sell(int number, long sellp) {
-		Stock fo;
+		Stock out;
 		long cg = 0;
 		//check length in switch statement
 		for (int i = 0; i < number; i++) {
-			fo = portfolio.dequeue();
-			//cg += fo.getAmount() * (sellp - fo.getBuyP());
+			out = portfolio.dequeue();
+			cg += sellp - out.getBuyP();
 		}
 		return cg;
-	}
-
-	public int getSize() {
-		return portfolio.getSize();
 	}
 }

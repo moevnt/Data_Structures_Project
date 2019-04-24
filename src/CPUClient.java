@@ -108,7 +108,7 @@ public class CPUClient {
 					}
 					break;
 					case 2: {
-						cpu.run();
+						cpu.runRoundRobin();
 					}
 					break;
 					case 3: {

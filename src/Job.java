@@ -35,4 +35,5 @@ public class Job {
 	public int getTime() {
 		return time;
 	}
+
 }
