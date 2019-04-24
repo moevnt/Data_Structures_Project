@@ -60,7 +60,18 @@ public class CPU {
 	}
 
 	public void runRoundRobin() {
+		Job[] jobArr = (Job[]) pq.toArray();
 
+		for(int i=0;i<jobArr.length;i++) {
+			Job current = jobArr[i];
+
+			if (current.getLength() > 0) {
+				for (int j = 0; j < current.getLength(); j++) {
+					System.out.println("Processing job " + current.getName() + " -|currently on step " + current.getTimeSlice() + " out of " + current.getLength() + "|-");
+					current.setLength(current.getLength() - current.getTimeSlice());
+				}
+			}
 		}
+	}
 
 }

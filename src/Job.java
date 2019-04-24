@@ -6,7 +6,7 @@ public class Job {
 	//between 1-100
 	private int length;
 	private String name;
-	private int time;
+	private int timeSlice;
 
 	public Job(int priority, int length, String name){
 		this.priority = priority;
@@ -14,8 +14,8 @@ public class Job {
 		this.name = name;
 	}
 
-	public Job( int length, String name,int time){
-		this.time = time;
+	public Job( int length, String name,int timeSlice){
+		this.timeSlice = timeSlice;
 		this.length = length;
 		this.name = name;
 	}
@@ -28,12 +28,19 @@ public class Job {
 		return length;
 	}
 
+	public void setLength(int length) {
+		this.length = length;
+	}
+
 	public int getPriority(){
 		return priority;
 	}
 
-	public int getTime() {
-		return time;
+	public int getTimeSlice() {
+		return timeSlice;
 	}
 
+	public void setTimeSlice(int time) {
+		this.timeSlice = time;
+	}
 }
